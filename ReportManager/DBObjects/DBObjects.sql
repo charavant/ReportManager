@@ -1,6 +1,7 @@
-CREATE SCHEMA dbo;
+CREATE SCHEMA Cfg;
+go
 
-CREATE TABLE dbo.Reports (
+CREATE TABLE Cfg.Reports (
     Id INT NOT NULL,
     Name VARCHAR(50) NOT NULL,
     Surname VARCHAR(50) NOT NULL,
@@ -11,9 +12,9 @@ CREATE TABLE dbo.Reports (
     Details NVARCHAR(MAX)
 );
 
-CREATE TABLE dbo.Members (
-    Id INT NOT NULL PRIMARY KEY AUTO INCREMENT,
-    ReportId INT NOT NULL REFERENCES dbo.Reports.id,
+CREATE TABLE Cfg.Members (
+    Id INT NOT NULL PRIMARY KEY,
+    ReportId INT NOT NULL,
     LineNumber SMALLINT NOT NULL,
     ProductID INT NULL,
     UnitPrice MONEY NULL,
@@ -23,7 +24,7 @@ CREATE TABLE dbo.Members (
     DueDate DATETIME NULL
 );
 
-CREATE TABLE dbo.Visits (
+CREATE TABLE Cfg.Visits (
     PurchaseOrderID INT NOT NULL,
     LineNumber SMALLINT NOT NULL,
     ProductID INT NULL,
@@ -33,3 +34,4 @@ CREATE TABLE dbo.Visits (
     RejectedQty FLOAT NULL,
     DueDate DATETIME NULL
 );
+
